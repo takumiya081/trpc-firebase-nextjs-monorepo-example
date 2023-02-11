@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # https://github.com/prisma/prisma-examples/blob/latest/databases/mongodb/docker-compose.yml
+  mongo:
+    container_name: mongo
+    image: prismagraphql/mongo-single-replica:4.4.3-bionic
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      INIT_WAIT_SEC: 3
+    ports:
+      - 27017:27017
+  firebase:
+    container_name: firebase
+    env_file: ./infrastructures/firebase/.env
+    build:
+      context: .
+      dockerfile: ./infrastructures/firebase/emulator/Dockerfile
+      args:
+        - VERSION:11.20.0
+    command: firebase emulators:start
+    # export したものをimportするときのcommand
+    # 今の所存在しないdirectoryを指定するとエラーになる
+    # command: firebase emulators:start --import=./data/export/
+    ports:
+      - 9199:9199
+      - 9099:9099
+      - 4000:4000
+    volumes:
+      - ./infrastructures/firebase/emulator/data:/home/node/data
+      - ./infrastructures/firebase/emulator/.cache:/home/node/.cache:cached

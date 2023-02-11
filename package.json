@@ -1,0 +1,31 @@
+{
+  "name": "first",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "eslint-config-custom": "workspace:*",
+    "prettier": "latest",
+    "turbo": "latest",
+    "vite-tsconfig-paths": "^4.0.5",
+    "vitest": "^0.28.4"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "jest": "^29.4.1",
+    "superjson": "^1.12.2",
+    "zod": "^3.20.2"
+  },
+  "packageManager": "pnpm@7.26.2"
+}

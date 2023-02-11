@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@packages/db": "workspace:*",
+    "@types/node": "^17.0.12",
+    "@types/react-dom": "^18.0.7",
+    "eslint": "7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.3"
+  },
+  "dependencies": {
+    "@packages/db": "workspace:*",
+    "@trpc/server": "^10.9.1",
+    "bson": "^5.0.0",
+    "dotenv": "^16.0.3",
+    "dotenv-expand": "^10.0.0",
+    "firebase-admin": "11.5.0",
+    "mongodb": "^5.0.0"
+  }
+}

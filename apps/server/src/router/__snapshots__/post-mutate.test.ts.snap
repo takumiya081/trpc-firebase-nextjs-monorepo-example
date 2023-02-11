@@ -1,0 +1,17 @@
+// Vitest Snapshot v1
+
+exports[`public module query > should success on create when authed 1`] = `
+{
+  "content": "test content",
+  "id": Any<String>,
+  "title": "test title",
+}
+`;
+
+exports[`public module query > should success on update when authed > res 1`] = `
+{
+  "content": "updated content",
+  "id": Any<String>,
+  "title": "updated title",
+}
+`;
